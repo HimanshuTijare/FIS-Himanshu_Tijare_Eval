@@ -15,17 +15,18 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 public class Pack {
 
 	@Id
+	//@Size(min = 7, max = 7)
 	int package_id;
 	
-	//@NotNull(message = "Source place may not be null")
+	@NotNull
 	@Column
 	String source_place;
 	
-	//@NotNull
+	@NotNull
 	@Column
 	double basic_fare;
 	
-	//@NotNull(message = "Destination place may not be null")
+	@NotNull
 	@Column
 	String destination_place;
 

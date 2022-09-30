@@ -19,9 +19,6 @@ public class PackageServiceImpl {
 	
 	@Autowired
 	PackageRepo repo;
-
-	
-	
 	
 	
 	public List<Pack> findall() {
@@ -51,6 +48,8 @@ public class PackageServiceImpl {
 			discount=7;
 			
 		}
+		
+		
 		Pack pack = get(package_id);
 		double basic_fare = pack.getBasic_fare();
 		discount=(basic_fare*nob)*(discount/100);
@@ -63,7 +62,7 @@ public class PackageServiceImpl {
 
 	public Pack get(int package_id) {
 		// TODO Auto-generated method stub
-		return repo.findById(package_id).get();
+		return repo.findById(package_id).orElseThrow(()->new RuntimeException("Id not found"));
 	}
 
 }
